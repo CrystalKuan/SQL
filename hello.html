@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html >
+    <head>
+        <meta charset="utf-8">   
+        <title>ck</title>
+        <script type="text/javascript" src="jquery-3.6.1.js"></script>         
+        <script>
+        var xhr = new XMLHttpRequest();
+        xhr.open('get','http://127.0.0.1:5000/',true);
+		xhr.send(null);
+		xhr.onload = function () {
+                var datastr = JSON.parse(xhr.responseText);
+                var len = datastr.data.channels.length;
+                var str = "";
+                var info = document.querySelector('.info');
+                var click = 0;
+                var btn = document.querySelector('.btn');
+                btn.onclick = function (e) {
+                    info.innerHTML = '';
+                    click++;
+                    str = '';
+                    str += '<table>';
+                    for (var i = 0; i < len; i++) {
+                        var content = '<tr>' + '<td>商戶名稱： </td><td>' + datastr.data.channels[i].channel_name + '</td>' + '</tr>';
+                        str += content;
+                        console.log(content);
+                    };
+                    str += '</table>';
+                    //console.log(str);
+                    info.innerHTML += str;
+                };
+            };
+        </script> 
+    </head>
+    <body>  
+        <button class="btn">全部商戶</button>
+        <ul class="info"></ul>
+    </body>
+</htm>
+
