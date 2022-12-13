@@ -9,4 +9,8 @@
   index.html--- 搭配 main.py 使用  
 
   api.py --- 打數據中心API,判斷數據是否為0    
+
+  test.py --- 後端在 url 上顯示某支 api 的 json 格式   
+
+  hello.html --- 搭配 test.py 使用,前端透過 jquery 將資料顯示在 web 上面  
   
